@@ -1,0 +1,21 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\input{preamble.tex}
+\begin{document}
+\begin{tikzpicture}[font=\sffamily]
+  \fill[mist] (0,0) circle (4.85);
+  \fill[sand] (0,0) circle (3.35);
+  \fill[crimson] (0,0) circle (1.75);
+  \draw[ink, line width=0.5pt] (0,0) circle (1.75);
+  \draw[ink, line width=0.5pt] (0,0) circle (3.35);
+  \draw[ink, line width=0.5pt] (0,0) circle (4.85);
+  \node[text=white, align=center, font=\sffamily\bfseries\footnotesize] at (0,0.16) {Engineering mass};
+  \node[text=white, align=center, font=\sffamily\scriptsize] at (0,-0.28) {STEM density};
+  \node[align=center, font=\sffamily\bfseries\footnotesize, text=ink] at (0,2.45) {System-building capacity};
+  \node[align=center, font=\sffamily\scriptsize, text=ink] at (0,2.08) {platforms, infrastructure, AI};
+  \node[align=center, font=\sffamily\bfseries\footnotesize, text=ink] at (0,4.05) {Geopolitical influence};
+  \node[align=center, font=\sffamily\bfseries\footnotesize, text=ink] at (0,3.68) {and sovereignty};
+\end{tikzpicture}
+\end{document}

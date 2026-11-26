@@ -1,0 +1,28 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\input{preamble.tex}
+\begin{document}
+\begin{tikzpicture}[font=\sffamily]
+  \fill[cream] (0,0) circle (5.15);
+  \draw[ink, line width=0.6pt] (0,0) circle (5.15);
+  % outer
+  \fill[mist] (0,0) circle (5.0);
+  % mid
+  \fill[sand] (0,0) circle (3.45);
+  % core
+  \fill[crimson] (0,0) circle (1.85);
+  \draw[ink, line width=0.4pt] (0,0) circle (1.85);
+  \draw[ink, line width=0.4pt] (0,0) circle (3.45);
+  \draw[ink, line width=0.4pt] (0,0) circle (5.0);
+  % labels
+  \node[text=white, align=center, font=\sffamily\bfseries\small, text width=3.2cm] at (0,0.08)
+    {Energy capture\\[-1pt]and tools\\[2pt]{\normalfont\scriptsize fire, stone,\\[-1pt]metallurgy}};
+  \node[align=center, font=\sffamily\bfseries\footnotesize, text=ink, text width=3.6cm] at (0,2.55)
+    {Social organization\\[-1pt]{\normalfont\scriptsize kinship, labor division,\\[-1pt]political hierarchy}};
+  \node[align=center, font=\sffamily\bfseries\footnotesize, text=ink, text width=4.2cm] at (0,4.15)
+    {Symbolic systems and narratives\\[-1pt]{\normalfont\scriptsize religion, ideology, law}};
+\end{tikzpicture}
+\end{document}

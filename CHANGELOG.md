@@ -1,0 +1,22 @@
+# Changelog
+
+## v0.2 — 26 November 2026
+
+Revised edition of the monograph, with an HTML reading edition and a GitHub Pages site.
+
+- Recreated the essay as LaTeX source (`paper/main.tex`, `paper/references.bib`) and built a cleanly named PDF, *The-Oldest-Law-of-Power-v0.2.pdf*, with author, date, version, and filled metadata.
+- Replaced the unverifiable reference formerly cited as Arora, Belenzon, and Patacconi (2021), *Journal of Industrial Economics* 69(2), with official U.S. Bureau of Labor Statistics wage data for software developers (May 2025).
+- Recast Acemoglu and Robinson, *Why Nations Fail* (2012), as a counterargument the essay answers, rather than as support for a technological reading of history.
+- Moved the immigration-and-competitiveness claims from Mazzucato (2013) and Landes (1998) to the National Academies report *International Talent Programs in the Changing Global Environment* (2024). Mazzucato is now cited only for industrial policy; Landes is cited only in the historical discussion.
+- Grounded the STEM-graduate comparison in Georgetown CSET (Oliss, McFaul, and Riddick, 2023), with 2020 headcounts, the UNESCO/OECD field definition, tertiary coverage, and quality caveats. The stronger combined comparison in v0.1 is marked as unverifiable from CSET’s published top-eleven table.
+- Corrected the TikTok U.S. ownership account to the official 22 January 2026 TikTok USDS Joint Venture announcement (Oracle, Silver Lake, and MGX at 15 percent each; ByteDance at 19.9 percent) and to TechCrunch reporting that the recommendation algorithm is licensed from ByteDance.
+- Drew real diagrams for all five figures and fixed table hyphenation and mid-paragraph table breaks.
+- Added Section 8, “Qualifications and Counterarguments,” on institutions, quality versus headcount, and small-state chokepoint builders (Taiwan, the Netherlands, South Korea, Japan, Israel). Revised the tier map accordingly.
+- Softened the abstract’s “technologically determined” language so it agrees with the conclusion’s rejection of crude determinism.
+- Added an HTML landing page and reading edition, published on GitHub Pages.
+- Switched the monograph’s license to CC BY 4.0 (copyright remains with Javed Alam). Build scripts remain MIT.
+- Added `CITATION.cff`, a versions section, this changelog, and repository topics.
+
+## v0.1 — 9 December 2025
+
+Original edition, preserved as first published. The PDF was stored in the repository as `Tech_leading (1).pdf`. See the [v0.1 release](https://github.com/Jalam1001/Tools-Talent-and-Power-How-Engineering-Capacity-Shapes-Civilizational-Hierarchy/releases/tag/v0.1).
