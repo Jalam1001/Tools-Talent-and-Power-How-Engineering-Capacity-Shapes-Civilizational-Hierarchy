@@ -263,7 +263,15 @@ a.cite { text-decoration: none; font-size: 0.9em; }
 .csl-entry { margin: 0 0 0.75rem; padding-left: 1.6rem; text-indent: -1.6rem; }
 .csl-entry a { overflow-wrap: anywhere; }
 
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  letter-spacing: 0;
+  font-variant-ligatures: none;
+}
+
 @media (max-width: 640px) {
+  :root { --nav-h: 6.4rem; }
   body { font-size: 1.05rem; }
   .site-header .inner { flex-direction: column; height: auto; padding: 0.65rem 1rem; align-items: flex-start; }
   .hero { padding-top: 2.2rem; }
