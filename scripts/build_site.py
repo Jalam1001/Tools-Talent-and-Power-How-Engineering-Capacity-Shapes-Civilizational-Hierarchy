@@ -273,7 +273,49 @@ def add_ref_ids(html: str) -> str:
     return html
 
 
-ESSAY_TEMPLATE = """<!DOCTYPE html>
+
+PDF_V02 = "The-Oldest-Law-of-Power-v0.2.pdf"
+PDF_V01 = "https://github.com/Jalam1001/Tools-Talent-and-Power-How-Engineering-Capacity-Shapes-Civilizational-Hierarchy/releases/download/v0.1/The-Oldest-Law-of-Power-v0.1-original.pdf"
+SITE = "https://jalam1001.github.io/Tools-Talent-and-Power-How-Engineering-Capacity-Shapes-Civilizational-Hierarchy/"
+REPO = "https://github.com/Jalam1001/Tools-Talent-and-Power-How-Engineering-Capacity-Shapes-Civilizational-Hierarchy"
+
+REVISION_HTML = f"""
+<section class="back-matter">
+  <h1 id="revisions">Revision notes</h1>
+  <p>Version 0.2 (November 2026) is a revised edition of the monograph first published in December 2025. It corrects citations, grounds the STEM comparison in Georgetown CSET’s 2020 data, updates the TikTok U.S. joint-venture account to verified 2026 reporting, draws the figures, adds a counterarguments section, and publishes this HTML reading edition. The argument of the essay is the same; the revisions make the evidence and the qualifications more precise.</p>
+
+  <h2 id="revision-v0-2">v0.2 — 26 November 2026</h2>
+  <p>Revised edition of the monograph, with an HTML reading edition and a GitHub Pages site.</p>
+  <ul>
+    <li>Recreated the essay as LaTeX source (<code>paper/main.tex</code>, <code>paper/references.bib</code>) and built a cleanly named PDF, <em>The-Oldest-Law-of-Power-v0.2.pdf</em>, with author, date, version, and filled metadata.</li>
+    <li>Replaced the unverifiable reference formerly cited as Arora, Belenzon, and Patacconi (2021), <em>Journal of Industrial Economics</em> 69(2), with official U.S. Bureau of Labor Statistics wage data for software developers (May 2025).</li>
+    <li>Recast Acemoglu and Robinson, <em>Why Nations Fail</em> (2012), as a counterargument the essay answers, rather than as support for a technological reading of history.</li>
+    <li>Moved the immigration-and-competitiveness claims from Mazzucato (2013) and Landes (1998) to the National Academies report <em>International Talent Programs in the Changing Global Environment</em> (2024). Mazzucato is now cited only for industrial policy; Landes is cited only in the historical discussion.</li>
+    <li>Grounded the STEM-graduate comparison in Georgetown CSET (Oliss, McFaul, and Riddick, 2023), with 2020 headcounts, the UNESCO/OECD field definition, tertiary coverage, and quality caveats. The stronger combined comparison in v0.1 is marked as unverifiable from CSET’s published top-eleven table.</li>
+    <li>Corrected the TikTok U.S. ownership account to the official 22 January 2026 TikTok USDS Joint Venture announcement (Oracle, Silver Lake, and MGX at 15 percent each; ByteDance at 19.9 percent) and to TechCrunch reporting that the recommendation algorithm is licensed from ByteDance.</li>
+    <li>Drew real diagrams for all five figures and fixed table hyphenation and mid-paragraph table breaks.</li>
+    <li>Added Section 8, “Qualifications and Counterarguments,” on institutions, quality versus headcount, and small-state chokepoint builders (Taiwan, the Netherlands, South Korea, Japan, Israel). Revised the tier map accordingly.</li>
+    <li>Softened the abstract’s “technologically determined” language so it agrees with the conclusion’s rejection of crude determinism.</li>
+    <li>Published an HTML reading edition of the full article on GitHub Pages.</li>
+    <li>Switched the monograph’s license to CC BY 4.0 (copyright remains with Javed Alam). Build scripts remain MIT.</li>
+    <li>Added <code>CITATION.cff</code>, a versions section, a changelog, and repository topics.</li>
+  </ul>
+
+  <h2 id="revision-v0-1">v0.1 — 9 December 2025</h2>
+  <p>Original edition, preserved as first published. The PDF was stored in the repository as <code>Tech_leading (1).pdf</code>.</p>
+  <p><a href="{PDF_V01}">Download the original v0.1 PDF</a> · <a href="{REPO}/releases/tag/v0.1">v0.1 release</a></p>
+</section>
+
+<section class="back-matter">
+  <h1 id="cite">How to cite</h1>
+  <blockquote>
+    <p>Alam, Javed. <em>The Oldest Law of Power: Technology, Human Hierarchy, and the Architecture of the Emerging Global Order</em>. Version 0.2. 2026. {SITE}</p>
+  </blockquote>
+  <p>A machine-readable <a href="{REPO}/blob/main/CITATION.cff"><code>CITATION.cff</code></a> file is included in the repository. The text and figures are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>. The author, Javed Alam, retains copyright.</p>
+</section>
+"""
+
+ARTICLE_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -287,7 +329,7 @@ ESSAY_TEMPLATE = """<!DOCTYPE html>
   <meta property="og:image" content="assets/social-preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="canonical" href="essay.html" />
+  <link rel="canonical" href="https://jalam1001.github.io/Tools-Talent-and-Power-How-Engineering-Capacity-Shapes-Civilizational-Hierarchy/" />
 </head>
 <body class="essay-page">
   <a class="skip" href="#main">Skip to the essay</a>
@@ -295,10 +337,10 @@ ESSAY_TEMPLATE = """<!DOCTYPE html>
     <div class="inner">
       <a class="wordmark" href="index.html">The Oldest Law of Power</a>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="essay.html" aria-current="page">Read</a>
+        <a href="index.html" aria-current="page">Article</a>
         <a href="The-Oldest-Law-of-Power-v0.2.pdf">PDF</a>
-        <a href="essay.html#references">Cite</a>
+        <a href="#revisions">Revisions</a>
+        <a href="#cite">Cite</a>
       </nav>
     </div>
   </header>
@@ -309,6 +351,9 @@ ESSAY_TEMPLATE = """<!DOCTYPE html>
       <p class="subtitle">Technology, Human Hierarchy, and the Architecture of the Emerging Global Order</p>
       <p class="byline">Javed Alam</p>
       <p class="dateline">December 2025; revised November 2026</p>
+      <div class="actions">
+        <a class="btn primary" href="The-Oldest-Law-of-Power-v0.2.pdf">Download PDF (v0.2)</a>
+      </div>
     </header>
     <section class="abstract-block" id="abstract">
       <h2>Abstract</h2>
@@ -321,88 +366,7 @@ ESSAY_TEMPLATE = """<!DOCTYPE html>
   <footer class="site-footer">
     <div class="inner">
       <p>© 2025–2026 Javed Alam. The text and figures of this monograph are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
-      <p><a href="index.html">Home</a> · <a href="The-Oldest-Law-of-Power-v0.2.pdf">Download the PDF</a> · <a href="https://github.com/Jalam1001/Tools-Talent-and-Power-How-Engineering-Capacity-Shapes-Civilizational-Hierarchy">Source on GitHub</a></p>
-    </div>
-  </footer>
-</body>
-</html>
-"""
-
-
-LANDING = """<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Oldest Law of Power — Javed Alam</title>
-  <meta name="description" content="A monograph on how engineering capacity shapes human hierarchy and the emerging global order, by Javed Alam. Version 0.2." />
-  <meta name="author" content="Javed Alam" />
-  <meta property="og:title" content="The Oldest Law of Power: Technology, Human Hierarchy, and the Architecture of the Emerging Global Order" />
-  <meta property="og:description" content="A monograph by Javed Alam on engineering capacity, technological sovereignty, and geopolitical hierarchy. Version 0.2." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/social-preview.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body class="home">
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="inner">
-      <a class="wordmark" href="index.html">The Oldest Law of Power</a>
-      <nav>
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="essay.html">Read</a>
-        <a href="The-Oldest-Law-of-Power-v0.2.pdf">PDF</a>
-        <a href="#cite">Cite</a>
-      </nav>
-    </div>
-  </header>
-  <main id="main">
-    <section class="hero">
-      <p class="eyebrow">A monograph · Version 0.2 · November 2026</p>
-      <h1>The Oldest Law of Power</h1>
-      <p class="subtitle">Technology, Human Hierarchy, and the Architecture of the Emerging Global Order</p>
-      <p class="byline">Javed Alam</p>
-      <p class="standfirst">From early tools to modern AI, engineering capacity—not ideology—has structured human hierarchy. This monograph traces that law of power, measures the global imbalance of STEM talent, and asks what it means for sovereignty in an age of platforms.</p>
-      <div class="actions">
-        <a class="btn primary" href="essay.html">Read online</a>
-        <a class="btn" href="The-Oldest-Law-of-Power-v0.2.pdf">Download PDF</a>
-        <a class="btn ghost" href="#cite">Cite this work</a>
-      </div>
-    </section>
-
-    <section class="abstract-block" id="abstract">
-      <h2>Abstract</h2>
-      <p>Technology has always been the primary driver of hierarchy within human societies. From the earliest stone tools to modern artificial intelligence systems, the capacity to create and wield technical innovations has consistently determined which groups ascend and which decline. Although contemporary discourse often frames technological disruption as a novel phenomenon, the historical record shows that technological capacity has consistently structured civilizational hierarchy. The twenty-first century magnifies this pattern: modern systems—artificial intelligence, advanced computation, semiconductor fabrication, autonomous platforms—require engineering capacities beyond the abilities of individuals or nations with limited STEM ecosystems.</p>
-      <p>This monograph examines the deep anthropological roots of technological hierarchy, analyzes the modern imbalance of engineering talent among global blocs, explores the structural implications of platform ecosystems such as TikTok, Douyin, CapCut, and Jianying, and outlines an emerging world order shaped by engineering density rather than ideology or traditional geopolitics. The three-tier map is then qualified: institutions, the quality of training as well as its volume, and specialized small-state system-builders such as Taiwan, the Netherlands, South Korea, and Israel all matter, and they refine rather than repeal the central claim.</p>
-    </section>
-
-    <section class="meta-grid">
-      <div>
-        <h2>This edition</h2>
-        <p>Version 0.2 (November 2026) corrects citations, grounds the STEM comparison in Georgetown CSET’s 2020 data, updates the TikTok U.S. joint-venture account to verified 2026 reporting, draws the figures, adds a counterarguments section, and publishes an HTML reading edition.</p>
-        <p><a href="https://github.com/Jalam1001/Tools-Talent-and-Power-How-Engineering-Capacity-Shapes-Civilizational-Hierarchy/blob/main/CHANGELOG.md">See the changelog</a></p>
-      </div>
-      <div>
-        <h2>Previous version</h2>
-        <p>Version 0.1 is the original edition, preserved as first published in December 2025.</p>
-        <p><a href="https://github.com/Jalam1001/Tools-Talent-and-Power-How-Engineering-Capacity-Shapes-Civilizational-Hierarchy/releases/tag/v0.1">Release v0.1</a><br />
-        <a href="https://github.com/Jalam1001/Tools-Talent-and-Power-How-Engineering-Capacity-Shapes-Civilizational-Hierarchy/releases/download/v0.1/The-Oldest-Law-of-Power-v0.1-original.pdf">Download the original PDF</a></p>
-      </div>
-    </section>
-
-    <section class="cite-block" id="cite">
-      <h2>Cite</h2>
-      <blockquote>
-        <p>Alam, Javed. <em>The Oldest Law of Power: Technology, Human Hierarchy, and the Architecture of the Emerging Global Order</em>. Version 0.2. 2026. https://jalam1001.github.io/Tools-Talent-and-Power-How-Engineering-Capacity-Shapes-Civilizational-Hierarchy/</p>
-      </blockquote>
-      <p>A machine-readable <a href="https://github.com/Jalam1001/Tools-Talent-and-Power-How-Engineering-Capacity-Shapes-Civilizational-Hierarchy/blob/main/CITATION.cff"><code>CITATION.cff</code></a> file is included in the repository. The text and figures are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>. The author, Javed Alam, retains copyright.</p>
-    </section>
-  </main>
-  <footer class="site-footer">
-    <div class="inner">
-      <p>© 2025–2026 Javed Alam. Text and figures: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
-      <p><a href="https://github.com/Jalam1001/Tools-Talent-and-Power-How-Engineering-Capacity-Shapes-Civilizational-Hierarchy">GitHub repository</a></p>
+      <p><a href="The-Oldest-Law-of-Power-v0.2.pdf">Download the v0.2 PDF</a> · <a href="https://github.com/Jalam1001/Tools-Talent-and-Power-How-Engineering-Capacity-Shapes-Civilizational-Hierarchy">Source on GitHub</a></p>
     </div>
   </footer>
 </body>
@@ -423,16 +387,17 @@ def main() -> None:
     body = convert_citations(body)
     body = convert_internal_refs(body)
     body = add_ref_ids(body)
-    # Drop accidental empty p / tabular leftovers
     body = re.sub(r"<p>\s*</p>", "", body)
     body = re.sub(r'<div class="center">.*?</div>', "", body, count=1, flags=re.S)
+    # Full revision notes and citation follow the references, at the end of the article.
+    body = body + "\n" + REVISION_HTML
     toc = build_toc(body)
 
-    essay = ESSAY_TEMPLATE.format(toc=toc, body=body)
-    (DOCS / "essay.html").write_text(essay)
-    (DOCS / "index.html").write_text(LANDING)
+    article = ARTICLE_TEMPLATE.format(toc=toc, body=body)
+    # The Pages entry page is the full article. Keep essay.html identical so older links still work.
+    (DOCS / "index.html").write_text(article)
+    (DOCS / "essay.html").write_text(article)
 
-    # copy figures and pdf
     for svg in (PAPER / "figures").glob("fig*.svg"):
         dest = DOCS / "figures" / svg.name
         dest.write_bytes(svg.read_bytes())
@@ -440,9 +405,9 @@ def main() -> None:
     if pdf_src.exists():
         (DOCS / "The-Oldest-Law-of-Power-v0.2.pdf").write_bytes(pdf_src.read_bytes())
 
-    print("wrote", DOCS / "index.html")
+    print("wrote", DOCS / "index.html", "bytes", (DOCS / "index.html").stat().st_size)
     print("wrote", DOCS / "essay.html", "bytes", (DOCS / "essay.html").stat().st_size)
-    print("figures", list((DOCS / "figures").glob("*.svg")))
+    print("figures", [p.name for p in (DOCS / "figures").glob("*.svg")])
 
 
 if __name__ == "__main__":

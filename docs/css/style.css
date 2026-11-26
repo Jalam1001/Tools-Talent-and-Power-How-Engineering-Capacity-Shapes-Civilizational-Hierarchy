@@ -276,3 +276,23 @@ a.cite { text-decoration: none; font-size: 0.9em; }
   .essay { max-width: none; }
   a { color: inherit; }
 }
+
+.essay-hero .actions { margin-top: 1.6rem; }
+.essay .abstract-block {
+  max-width: none;
+  margin: 0 0 2rem;
+  padding: 0 0 0.25rem;
+  border-top: 0;
+}
+.back-matter {
+  margin-top: 2.8rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: calc(var(--nav-h) + 0.6rem);
+}
+.back-matter h1 {
+  margin-top: 2rem;
+}
+.back-matter blockquote {
+  margin: 0 0 1rem;
+}
